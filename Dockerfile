@@ -1,6 +1,8 @@
 FROM evarga/jenkins-slave
 
-RUN sudo apt-get update && sudo apt-get install -y unzip wget curl git
+RUN sudo apt-get update && sudo apt-get install -y unzip wget curl git python-setuptools python-dev
+
+RUN easy_install pip==1.5.4 && pip install devpi
 
 USER jenkins
 WORKDIR /home/jenkins
