@@ -5,16 +5,18 @@ RUN sudo apt-get update && sudo apt-get install -y unzip wget curl git \
     libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
     libncurses5-dev libncursesw5-dev xz-utils libffi-dev
 
+# Install Packer
+ENV PACKER_VERSION 0.10.1
+
+RUN wget https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip
+RUN unzip packer_${PACKER_VERSION}_linux_amd64.zip -d /bin
+RUN rm -f packer_${PACKER_VERSION}_linux_amd64.zip
+
 USER jenkins
 WORKDIR /home/jenkins
 
 ENV NVM_DIR /home/jenkins/.nvm
 ENV NODE_VERSION 0.12.7
-
-# Install Packer
-RUN wget https://releases.hashicorp.com/packer/0.9.0/packer_0.9.0_linux_386.zip && \
-    unzip packer_0.9.0_linux_386.zip && \
-    echo 'PATH=$PATH:/home/jenkins/packer' >> ~/.profile
 
 # Install nvm with node and npm
 RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
