@@ -1,6 +1,6 @@
 FROM evarga/jenkins-slave
 
-RUN sudo apt-get update && sudo apt-get install -y unzip wget curl git && \
+RUN sudo apt-get update && sudo apt-get install -y unzip wget curl git
 
 USER jenkins
 WORKDIR /home/jenkins
