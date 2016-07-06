@@ -23,7 +23,7 @@ RUN . ~/.profile && nvm install $NODE_VERSION \
     && nvm use default \
     && nvm install v6.2.2 && nvm install 0.10.45 \
     && nvm install v4.4.7 && nvm install v5.3.0 \
-    && npm use default && npm install -g grunt-cli
+    && nvm use default && npm install -g grunt-cli
 
 # Install Python w/ pyenv
 RUN curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash \
