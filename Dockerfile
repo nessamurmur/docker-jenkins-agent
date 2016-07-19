@@ -3,7 +3,8 @@ FROM evarga/jenkins-slave
 RUN sudo apt-get update && sudo apt-get install -y unzip wget curl git \
     build-essential python-dev make libssl-dev zlib1g-dev \
     libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
-    libncurses5-dev libncursesw5-dev xz-utils libffi-dev redis-server
+    libncurses5-dev libncursesw5-dev xz-utils libffi-dev redis-server \
+    libxml2-dev libxslt1-dev
 
 # Install Packer
 ENV PACKER_VERSION 0.10.1
